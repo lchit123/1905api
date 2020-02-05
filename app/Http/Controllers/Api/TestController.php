@@ -8,8 +8,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redis;
 class TestController extends Controller
-{
-     public function showData()
+{ 
+
+    //注册
+    public function reg()
+    {
+        //请求passport
+        $url = 'http://www.1905passport.com/admin/user/reg';
+        $response = UserModel::curlPost($url,$_POST);
+        return $response;
+    }
+
+    //登陆
+    public function login()
+    {
+        //请求passport
+        $url = 'http://www.1905passport.com/admin/user/login';
+        $response = UserModel::curlPost($url,$_POST);
+        return $response;
+    }
+
+    public function showData()
     {
 
         // 收到 token
