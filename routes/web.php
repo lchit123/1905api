@@ -15,3 +15,6 @@ Route::get('/', function () {
 	//echo phpinfo();
     return view('welcome');
 });
+
+Route::get('/test/postman','Api\TestController@postman');
+Route::get('/test/postman1','Api\TestController@postman1')->middleware('filter','check.token');
