@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 Route::get('/test/postman','Api\TestController@postman');
 Route::get('/test/postman1','Api\TestController@postman1')->middleware('filter','check.token');
+Route::post('/test/post/sign2','Sign\IndexController@sign2');
+Route::post('/test/post/sign3','Sign\IndexController@sign3');
 
 Route::get('/test/md5','Api\TestController@md5test');
 
