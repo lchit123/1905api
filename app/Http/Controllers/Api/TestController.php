@@ -153,6 +153,26 @@ class TestController extends Controller
 
     }
 
+    //非对称加密
+    public function encrypt2()
+    { 
+        $data="这是一个秘密";
+
+        //使用非对称加密
+        //获取私钥
+        //$prive_key=openssl_get_privatekey();
+        $path=storage_path('keys/privkey3');
+        $prive_key=openssl_get_private("file://".$path);
+        openssl_plivate_encrypt($data,$encrypt_data,$prive_key,OPENSSL_PKCS1_PADDING);
+
+        var_dump($encrypt_data);echo '<hr>';
+
+        $base64_str=base64_encode($encyrypt_data);
+        echo '</br>';
+        echo $base64_str;
+
+    }
+
 
 
 
